@@ -1,0 +1,24 @@
+<div class="container">
+	<% if flash[:notice] %>
+	<div class="row">
+		<div class="col s12 darken-3 green message">
+			<p><%= flash[:notice]%></p>
+		</div>
+	</div>
+	<% end %>
+	<div class="row">
+		<div class="col s12">
+			<div class="card p-3">
+				<h4>Submitted Information</h4>
+
+				<p>Name: <span><%= @sess_data["name"] %></span></p>
+				<p>Dojo Location: <span><%= @sess_data["location"] %></span></p>
+				<p>Favorite Language: <span><%= @sess_data["language"] %></span></p>
+				<p>Comment: <span><%= @sess_data["comment"] %></span></p>
+
+				<%=link_to 'Back', "/", class:'btn red darken-3' %>
+				<!-- <a href="/">Back</a> -->
+			</div>
+		</div>
+	</div>
+</div>

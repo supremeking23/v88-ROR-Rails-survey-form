@@ -1,0 +1,56 @@
+<script>
+    $(document).ready(function() {
+        $("select").formSelect();
+    });
+</script>
+
+<div class="container">
+    <div class="row card">
+        <div class="col s12">
+            <h2>Survey Form</h2>
+        </div>
+        <form action="/surveys/create" method="post" class="col s12">
+            <!-- <%= form_with url: "surveys/create", method: :post do |form| %> -->
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="full_name" type="text" name="survey[name]" class="validate" />
+                    <label for="full_name">Full Name</label>
+                </div>
+            </div>
+
+            <div class="input-field col s12">
+                <select name="survey[location]">
+                    <option value="" disabled selected></option>
+                    <option value="Taguig City">Taguig City</option>
+                    <option value="Makati City">Makati City</option>
+                    <option value="Manila City">Manila City</option>
+                </select>
+                <label>Dojo Location</label>
+            </div>
+
+            <div class="input-field col s12">
+                <select name="survey[language]">
+                    <option value="" disabled selected></option>
+                    <option value="Python">Python</option>
+                    <option value="Javascript">Javascript</option>
+                    <option value="Ruby">Ruby</option>
+                </select>
+                <label>Favorite Language</label>
+            </div>
+
+            <div class="input-field col s12">
+                <textarea id="comment" name="survey[comment]" class="materialize-textarea"></textarea>
+                <label for="comment">Textarea</label>
+            </div>
+
+            <div class="input-field col s12">
+                <button class="btn waves-effect waves-light" type="submit" name="action">
+                    Submit
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>
+            <!-- </form> -->
+            <% end %>
+    </div>
+</div>
